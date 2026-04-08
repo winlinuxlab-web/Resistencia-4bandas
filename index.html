@@ -45,13 +45,6 @@
             margin: 0;
         }
 
-        .tagline {
-            font-size: 0.9rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--text-dim);
-        }
-
         .card {
             background: var(--card-bg);
             border: 1px solid var(--border);
@@ -60,65 +53,47 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
-        /* Tabla de referencia */
+        /* Tabla de referencia mejorada */
         .ref-table {
             width: 100%;
             border-collapse: collapse;
-            font-size: 0.85rem;
-            margin: 15px 0;
+            font-size: 0.9rem;
+            margin: 20px 0;
         }
 
-        .ref-table th { color: var(--inacap-red); text-align: left; padding: 8px; border-bottom: 1px solid var(--border); }
-        .ref-table td { padding: 6px 8px; border-bottom: 1px solid #222; }
+        .ref-table th { color: var(--inacap-red); text-align: left; padding: 10px; border-bottom: 2px solid var(--border); }
+        .ref-table td { padding: 8px 10px; border-bottom: 1px solid #222; }
 
         .swatch {
-            width: 15px; height: 15px;
+            width: 18px; height: 18px;
             display: inline-block;
-            border-radius: 3px;
-            margin-right: 8px;
+            border-radius: 4px;
+            margin-right: 10px;
+            vertical-align: middle;
             border: 1px solid #444;
         }
 
-        /* Resistencia */
-        .resistor-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 30px 0;
-        }
-
-        .wire { height: 4px; width: 30px; background: #555; }
-        .r-body {
-            display: flex;
-            height: 45px;
-            background: #d1b48c;
-            border-radius: 8px;
-            padding: 0 15px;
-            align-items: stretch;
-            gap: 10px;
-            box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
-        }
-
-        .b { width: 12px; }
-
-        /* Colores de las bandas */
+        /* Colores */
         .negro { background: #000; } .marron { background: #6b3e23; } .rojo { background: #ff0000; }
         .naranja { background: #ff8c00; } .amarillo { background: #ffff00; } .verde { background: #008000; }
         .azul { background: #0000ff; } .violeta { background: #8a2be2; } .gris { background: #808080; }
-        .blanco { background: #ffffff; } .dorado { background: #ffd700; }
+        .blanco { background: #ffffff; }
 
         .btn {
             width: 100%;
-            padding: 15px;
+            padding: 16px;
             background: var(--inacap-red);
             color: white;
             border: none;
-            border-radius: 6px;
+            border-radius: 8px;
             font-family: 'Orbitron', sans-serif;
             font-weight: 700;
             cursor: pointer;
             text-transform: uppercase;
+            transition: 0.2s;
         }
+
+        .btn:active { transform: scale(0.98); }
 
         input {
             width: 100%;
@@ -129,16 +104,39 @@
             border-radius: 6px;
             margin-bottom: 15px;
             box-sizing: border-box;
+            font-size: 1rem;
         }
+
+        .resistor-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 25px 0;
+        }
+
+        .wire { height: 4px; width: 35px; background: #555; }
+        .r-body {
+            display: flex;
+            height: 50px;
+            background: #d1b48c;
+            border-radius: 10px;
+            padding: 0 15px;
+            align-items: stretch;
+            gap: 12px;
+        }
+
+        .b { width: 14px; }
+        .dorado { background: #ffd700; }
 
         .watermark {
             text-align: center;
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             color: #444;
-            margin-top: 20px;
+            margin-top: 25px;
+            letter-spacing: 1px;
         }
 
-        .hidden { display: none; }
+        .hidden { display: none !important; }
     </style>
 </head>
 <body>
@@ -146,33 +144,43 @@
 <div id="app">
     <header>
         <h1 class="logo">INACAP</h1>
-        <div class="tagline">Electrónica Básica</div>
-        <div style="font-weight: 600; margin-top: 5px;">Certificación de Colores</div>
+        <div style="font-weight: 600; letter-spacing: 2px; color: var(--text-dim);">ENTRENADOR DE RESISTENCIAS</div>
     </header>
 
     <div id="screen-study" class="card">
-        <h3 style="margin-top:0">Tabla de Referencia</h3>
+        <h3 style="text-align:center; margin-top:0; color:var(--inacap-red);">REPASO DE CÓDIGO</h3>
         <table class="ref-table">
             <thead>
-                <tr><th>Color</th><th>Dígito</th><th>Mult.</th></tr>
+                <tr><th>Color</th><th>Díg.</th><th>Mult.</th></tr>
             </thead>
-            <tbody id="ref-body"></tbody>
+            <tbody>
+                <tr><td><span class="swatch negro"></span> Negro</td><td>0</td><td>x1</td></tr>
+                <tr><td><span class="swatch marron"></span> Marrón / Café</td><td>1</td><td>x10</td></tr>
+                <tr><td><span class="swatch rojo"></span> Rojo</td><td>2</td><td>x100</td></tr>
+                <tr><td><span class="swatch naranja"></span> Naranja / Naranjo</td><td>3</td><td>x1k</td></tr>
+                <tr><td><span class="swatch amarillo"></span> Amarillo</td><td>4</td><td>x10k</td></tr>
+                <tr><td><span class="swatch verde"></span> Verde</td><td>5</td><td>x100k</td></tr>
+                <tr><td><span class="swatch azul"></span> Azul</td><td>6</td><td>x1M</td></tr>
+                <tr><td><span class="swatch violeta"></span> Violeta</td><td>7</td><td>-</td></tr>
+                <tr><td><span class="swatch gris"></span> Gris</td><td>8</td><td>-</td></tr>
+                <tr><td><span class="swatch blanco"></span> Blanco</td><td>9</td><td>-</td></tr>
+            </tbody>
         </table>
-        <button class="btn" onclick="startQuiz()">Entendido, Comenzar</button>
+        <button class="btn" onclick="startQuiz()">Comenzar Desafío</button>
     </div>
 
     <div id="screen-quiz" class="card hidden">
-        <div id="q-header" style="color: var(--inacap-red); font-weight: 700; margin-bottom: 15px;"></div>
+        <div id="q-header" style="font-size:0.8rem; color: var(--inacap-red); font-weight: 800; margin-bottom: 10px;"></div>
         <div id="q-content"></div>
-        <div id="feedback" style="padding: 10px; border-radius: 4px; margin-bottom: 15px; display: none;"></div>
-        <button id="btn-action" class="btn" onclick="checkAnswer()">Validar</button>
+        <div id="feedback" style="padding: 12px; border-radius: 6px; margin-bottom: 15px; display: none; text-align: center; font-weight: 600;"></div>
+        <button id="btn-action" class="btn">Validar</button>
     </div>
 
     <div id="screen-result" class="card hidden" style="text-align: center;">
-        <h2>Certificación Finalizada</h2>
-        <div id="final-grade" style="font-family: 'Orbitron'; font-size: 4rem; color: var(--inacap-red);"></div>
-        <p id="final-stats"></p>
-        <button class="btn" onclick="location.reload()">Reintentar</button>
+        <h2 style="margin-top:0;">Certificación Exitosa</h2>
+        <div id="final-grade" style="font-family: 'Orbitron'; font-size: 5rem; color: var(--inacap-red); line-height:1;"></div>
+        <p id="final-stats" style="margin: 20px 0; color: var(--text-dim);"></p>
+        <button class="btn" onclick="location.reload()">Reiniciar</button>
     </div>
 
     <div class="watermark">Docente NMZ - versión 1 - 2026</div>
@@ -180,43 +188,30 @@
 
 <script>
     const COLORS = [
-        { n: 'Negro', d: 0, m: 1, c: 'negro' },
-        { n: 'Marrón', d: 1, m: 10, c: 'marron' },
-        { n: 'Rojo', d: 2, m: 100, c: 'rojo' },
-        { n: 'Naranja', d: 3, m: 1000, c: 'naranja' },
-        { n: 'Amarillo', d: 4, m: 10000, c: 'amarillo' },
-        { n: 'Verde', d: 5, m: 100000, c: 'verde' },
-        { n: 'Azul', d: 6, m: 1000000, c: 'azul' },
-        { n: 'Violeta', d: 7, m: 0, c: 'violeta' },
-        { n: 'Gris', d: 8, m: 0, c: 'gris' },
-        { n: 'Blanco', d: 9, m: 0, c: 'blanco' }
+        { n: 'negro', d: 0, m: 1, c: 'negro' },
+        { n: 'marron', alt: 'cafe', d: 1, m: 10, c: 'marron' },
+        { n: 'rojo', d: 2, m: 100, c: 'rojo' },
+        { n: 'naranja', alt: 'naranjo', d: 3, m: 1000, c: 'naranja' },
+        { n: 'amarillo', d: 4, m: 10000, c: 'amarillo' },
+        { n: 'verde', d: 5, m: 100000, c: 'verde' },
+        { n: 'azul', d: 6, m: 1000000, c: 'azul' },
+        { n: 'violeta', d: 7, m: 0, c: 'violeta' },
+        { n: 'gris', d: 8, m: 0, c: 'gris' },
+        { n: 'blanco', d: 9, m: 0, c: 'blanco' }
     ];
 
     let currentQ = 0, score = 0, questions = [];
 
-    // Cargar tabla de estudio al inicio
-    const tbody = document.getElementById('ref-body');
-    COLORS.forEach(col => {
-        if(col.d < 10) {
-            tbody.innerHTML += `<tr>
-                <td><span class="swatch ${col.c}"></span> ${col.n}</td>
-                <td>${col.d}</td>
-                <td>${col.m ? 'x' + col.m : '-'}</td>
-            </tr>`;
-        }
-    });
-
     function startQuiz() {
-        // Generar 10 preguntas (5 de cada tipo)
         for(let i=0; i<10; i++) {
             const d1 = Math.floor(Math.random() * 9) + 1;
             const d2 = Math.floor(Math.random() * 10);
-            const mObj = COLORS[Math.floor(Math.random() * 7)]; // Solo colores con multiplicador
+            const mIdx = Math.floor(Math.random() * 7); 
             questions.push({
                 d1: COLORS.find(c => c.d === d1),
                 d2: COLORS.find(c => c.d === d2),
-                m: mObj,
-                val: (d1 * 10 + d2) * mObj.m,
+                m: COLORS[mIdx],
+                val: (d1 * 10 + d2) * COLORS[mIdx].m,
                 type: i % 2 === 0 ? 'color-to-val' : 'val-to-color'
             });
         }
@@ -228,34 +223,37 @@
     function showQuestion() {
         const q = questions[currentQ];
         const content = document.getElementById('q-content');
-        document.getElementById('q-header').innerText = `PREGUNTA ${currentQ + 1} DE 10`;
-        document.getElementById('feedback').style.display = 'none';
-        document.getElementById('btn-action').innerText = "Validar";
-        document.getElementById('btn-action').onclick = checkAnswer;
+        const fb = document.getElementById('feedback');
+        const btn = document.getElementById('btn-action');
+        
+        document.getElementById('q-header').innerText = `DESAFÍO ${currentQ + 1} / 10`;
+        fb.style.display = 'none';
+        btn.innerText = "Validar";
+        btn.onclick = checkAnswer;
 
         if(q.type === 'color-to-val') {
             content.innerHTML = `
-                <p>Calcula el valor de la resistencia según las bandas:</p>
+                <p style="text-align:center;">¿Cuál es el valor óhmico?</p>
                 <div class="resistor-container">
                     <div class="wire"></div>
                     <div class="r-body">
                         <div class="b ${q.d1.c}"></div>
                         <div class="b ${q.d2.c}"></div>
                         <div class="b ${q.m.c}"></div>
-                        <div style="width:20px"></div>
+                        <div style="width:25px"></div>
                         <div class="b dorado"></div>
                     </div>
                     <div class="wire"></div>
                 </div>
-                <input type="number" id="ans" placeholder="Valor en Ohmios (Ω)">
+                <input type="number" id="ans" placeholder="Ej: 220">
             `;
         } else {
             content.innerHTML = `
-                <p>Indica los colores para una resistencia de:</p>
-                <h2 style="text-align:center; color: var(--inacap-red);">${q.val} Ω</h2>
-                <input type="text" id="b1" placeholder="Color Banda 1">
-                <input type="text" id="b2" placeholder="Color Banda 2">
-                <input type="text" id="b3" placeholder="Color Banda 3 (Multiplicador)">
+                <p style="text-align:center;">Indica los colores para:</p>
+                <h2 style="text-align:center; color: var(--inacap-red); margin: 15px 0;">${q.val} Ω</h2>
+                <input type="text" id="b1" placeholder="Color Banda 1" autocomplete="off">
+                <input type="text" id="b2" placeholder="Color Banda 2" autocomplete="off">
+                <input type="text" id="b3" placeholder="Color Multiplicador" autocomplete="off">
             `;
         }
     }
@@ -263,31 +261,35 @@
     function checkAnswer() {
         const q = questions[currentQ];
         let correct = false;
-        let info = "";
+        let solution = "";
+
+        const normalize = (text) => {
+            return text.toLowerCase()
+                .normalize("NFD").replace(/[\u0300-\u036f]/g, "") // Quitar tildes
+                .replace('cafe', 'marron')
+                .replace('naranjo', 'naranja');
+        };
 
         if(q.type === 'color-to-val') {
             const userVal = parseInt(document.getElementById('ans').value);
             correct = userVal === q.val;
-            info = `El valor correcto era ${q.val} Ω`;
+            solution = `Correcto: ${q.val} Ω`;
         } else {
-            const u1 = document.getElementById('b1').value.toLowerCase();
-            const u2 = document.getElementById('b2').value.toLowerCase();
-            const u3 = document.getElementById('b3').value.toLowerCase();
+            const u1 = normalize(document.getElementById('b1').value);
+            const u2 = normalize(document.getElementById('b2').value);
+            const u3 = normalize(document.getElementById('b3').value);
             
-            // Función para normalizar nombres (marrón/cafe)
-            const norm = (s) => s.replace('ó','o').replace('é','e').replace('cafe','marron');
-            
-            correct = norm(u1).includes(norm(q.d1.n).toLowerCase()) && 
-                      norm(u2).includes(norm(q.d2.n).toLowerCase()) && 
-                      norm(u3).includes(norm(q.m.n).toLowerCase());
-            info = `Los colores eran: ${q.d1.n}, ${q.d2.n}, ${q.m.n}`;
+            correct = u1 === normalize(q.d1.n) && 
+                      u2 === normalize(q.d2.n) && 
+                      u3 === normalize(q.m.n);
+            solution = `Colores: ${q.d1.n}, ${q.d2.n}, ${q.m.n}`;
         }
 
         const fb = document.getElementById('feedback');
         fb.style.display = 'block';
-        fb.style.backgroundColor = correct ? '#1b4332' : '#4e1616';
-        fb.style.color = correct ? '#81c784' : '#e57373';
-        fb.innerText = correct ? "¡Excelente! Respuesta correcta." : `Incorrecto. ${info}`;
+        fb.style.background = correct ? '#1b4332' : '#4e1616';
+        fb.style.color = correct ? '#81c784' : '#ffbaba';
+        fb.innerText = correct ? "¡CORRECTO!" : `INCORRECTO. ${solution}`;
 
         if(correct) score++;
         
@@ -303,12 +305,9 @@
     function showResult() {
         document.getElementById('screen-quiz').classList.add('hidden');
         document.getElementById('screen-result').classList.remove('hidden');
-        
-        // Escala chilena (60% exigencia)
         let nota = (score < 6) ? (score * 3 / 6) + 1 : ((score - 6) * 3 / 4) + 4;
-        
         document.getElementById('final-grade').innerText = nota.toFixed(1);
-        document.getElementById('final-stats').innerText = `Aprobaste ${score} de 10 ejercicios.`;
+        document.getElementById('final-stats').innerText = `Lograste ${score} de 10 aciertos totales.`;
     }
 </script>
 </body>
