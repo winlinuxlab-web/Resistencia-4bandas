@@ -1,315 +1,315 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Certificación Código de Colores – INACAP</title>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@400;500;600&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
-<style>
-:root {
-  --inacap-red: #e2231a;
-  --bg-dark: #0f0f0f;
-  --panel: #1a1a1a;
-  --white: #ffffff;
-  --gray: #888888;
-  --border: rgba(226, 35, 26, 0.3);
-  
-  /* Colores bandas */
-  --b-negro: #111111; --b-marron: #7B3F00; --b-rojo: #CC0000;
-  --b-naranja: #FF6600; --b-amarillo: #FFD700; --b-verde: #2E7D32;
-  --b-azul: #1565C0; --b-violeta: #6A1B9A; --b-gris: #757575;
-  --b-blanco: #F5F5F5; --b-dorado: #DAA520;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Certificación Código de Colores – INACAP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;600&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --inacap-red: #e2231a;
+            --bg: #0f0f0f;
+            --card-bg: #1a1a1a;
+            --text: #ffffff;
+            --text-dim: #b0b0b0;
+            --border: #333;
+        }
 
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Barlow', sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
 
-body {
-  background: var(--bg-dark);
-  color: var(--white);
-  font-family: 'Barlow', sans-serif;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-}
+        #app {
+            width: 100%;
+            max-width: 500px;
+            padding: 20px;
+        }
 
-#app {
-  width: 100%;
-  max-width: 600px;
-  padding: 2rem 1rem;
-  display: flex;
-  flex-direction: column;
-}
+        header {
+            text-align: center;
+            border-bottom: 3px solid var(--inacap-red);
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+        }
 
-header {
-  text-align: center;
-  border-bottom: 3px solid var(--inacap-red);
-  margin-bottom: 2rem;
-  padding-bottom: 1.5rem;
-}
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            color: var(--inacap-red);
+            margin: 0;
+        }
 
-.inst-name {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 2.8rem;
-  font-weight: 900;
-  color: var(--inacap-red);
-  letter-spacing: 2px;
-  line-height: 1;
-}
+        .tagline {
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-dim);
+        }
 
-.inst-dept {
-  font-size: 1rem;
-  letter-spacing: 0.25em;
-  color: var(--white);
-  font-weight: 700;
-  text-transform: uppercase;
-  margin-top: 0.5rem;
-}
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
 
-.sub-title {
-  font-size: 1.2rem;
-  color: var(--inacap-red);
-  font-weight: 600;
-  margin-top: 0.5rem;
-  text-transform: uppercase;
-}
+        /* Tabla de referencia */
+        .ref-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            margin: 15px 0;
+        }
 
-.credit-line {
-  font-size: 0.85rem;
-  color: var(--gray);
-  margin-top: 0.4rem;
-  font-style: italic;
-}
+        .ref-table th { color: var(--inacap-red); text-align: left; padding: 8px; border-bottom: 1px solid var(--border); }
+        .ref-table td { padding: 6px 8px; border-bottom: 1px solid #222; }
 
-.card {
-  background: var(--panel);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 2rem;
-  box-shadow: 0 15px 35px rgba(0,0,0,0.8);
-  margin-bottom: 1rem;
-}
+        .swatch {
+            width: 15px; height: 15px;
+            display: inline-block;
+            border-radius: 3px;
+            margin-right: 8px;
+            border: 1px solid #444;
+        }
 
-.btn-primary {
-  width: 100%;
-  background: var(--inacap-red);
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  padding: 1rem;
-  font-family: 'Orbitron', sans-serif;
-  font-size: 1rem;
-  font-weight: 700;
-  cursor: pointer;
-  text-transform: uppercase;
-  transition: 0.3s;
-}
+        /* Resistencia */
+        .resistor-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 30px 0;
+        }
 
-.btn-primary:hover { background: #b51a14; }
+        .wire { height: 4px; width: 30px; background: #555; }
+        .r-body {
+            display: flex;
+            height: 45px;
+            background: #d1b48c;
+            border-radius: 8px;
+            padding: 0 15px;
+            align-items: stretch;
+            gap: 10px;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
+        }
 
-/* Resistencia Visual */
-.resistor-wrap {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 1.5rem 0;
-}
-.resistor-wire { height: 4px; width: 40px; background: #555; }
-.resistor-body {
-  display: flex;
-  height: 40px;
-  background: #C8A96A;
-  border-radius: 8px;
-  padding: 0 10px;
-  align-items: stretch;
-  gap: 8px;
-  border: 1px solid rgba(0,0,0,0.2);
-}
-.band { width: 12px; height: 100%; }
+        .b { width: 12px; }
 
-/* Inputs Estilizados */
-.input-group { margin-bottom: 1rem; }
-.input-group label { display: block; font-size: 0.8rem; color: var(--gray); margin-bottom: 0.3rem; text-transform: uppercase; }
-.input-group input {
-  width: 100%;
-  background: #252525;
-  border: 2px solid #333;
-  padding: 0.8rem;
-  color: white;
-  border-radius: 6px;
-  font-family: 'Barlow', sans-serif;
-}
-.input-group input:focus { border-color: var(--inacap-red); outline: none; }
+        /* Colores de las bandas */
+        .negro { background: #000; } .marron { background: #6b3e23; } .rojo { background: #ff0000; }
+        .naranja { background: #ff8c00; } .amarillo { background: #ffff00; } .verde { background: #008000; }
+        .azul { background: #0000ff; } .violeta { background: #8a2be2; } .gris { background: #808080; }
+        .blanco { background: #ffffff; } .dorado { background: #ffd700; }
 
-.nota-display { font-family: 'Orbitron'; font-size: 5rem; color: var(--inacap-red); text-align: center; }
-.hidden { display: none !important; }
+        .btn {
+            width: 100%;
+            padding: 15px;
+            background: var(--inacap-red);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
 
-/* Colores de Bandas */
-.b-negro { background: #000; } .b-marron { background: #7B3F00; } .b-rojo { background: #CC0000; }
-.b-naranja { background: #FF6600; } .b-amarillo { background: #FFD700; } .b-verde { background: #2E7D32; }
-.b-azul { background: #1565C0; } .b-violeta { background: #6A1B9A; } .b-gris { background: #757575; }
-.b-blanco { background: #F5F5F5; } .b-dorado { background: #DAA520; }
-</style>
+        input {
+            width: 100%;
+            padding: 12px;
+            background: #222;
+            border: 1px solid var(--border);
+            color: white;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        .watermark {
+            text-align: center;
+            font-size: 0.7rem;
+            color: #444;
+            margin-top: 20px;
+        }
+
+        .hidden { display: none; }
+    </style>
 </head>
 <body>
 
 <div id="app">
-  <header>
-    <div class="inst-name">INACAP</div>
-    <div class="inst-dept">Electricidad y Electrónica</div>
-    <div class="sub-title">Certificación Código de Colores</div>
-    <div class="credit-line">Aporte de la docente Edith Mena (NMZ)</div>
-  </header>
+    <header>
+        <h1 class="logo">INACAP</h1>
+        <div class="tagline">Electrónica Básica</div>
+        <div style="font-weight: 600; margin-top: 5px;">Certificación de Colores</div>
+    </header>
 
-  <main>
-    <div id="screen-inicio" class="card">
-      <div class="resistor-wrap">
-        <div class="resistor-wire"></div>
-        <div class="resistor-body">
-          <div class="band b-marron"></div>
-          <div class="band b-negro"></div>
-          <div class="band b-rojo"></div>
-          <div style="width:20px"></div>
-          <div class="band b-dorado"></div>
-        </div>
-        <div class="resistor-wire"></div>
-      </div>
-      <p style="text-align:center; color: var(--gray); margin-bottom: 1.5rem;">
-        Evaluación de 10 ejercicios aleatorios.<br>Resistencias serie E24 de 4 bandas.<br>
-        <strong>Exigencia: 60% para aprobación (4.0).</strong>
-      </p>
-      <button class="btn-primary" onclick="iniciarQuiz()">Comenzar Certificación</button>
+    <div id="screen-study" class="card">
+        <h3 style="margin-top:0">Tabla de Referencia</h3>
+        <table class="ref-table">
+            <thead>
+                <tr><th>Color</th><th>Dígito</th><th>Mult.</th></tr>
+            </thead>
+            <tbody id="ref-body"></tbody>
+        </table>
+        <button class="btn" onclick="startQuiz()">Entendido, Comenzar</button>
     </div>
 
-    <div id="screen-pregunta" class="card hidden">
-      <div id="prog-texto" style="font-size: 0.8rem; color: var(--inacap-red); margin-bottom: 1rem; font-weight: 700;"></div>
-      <div id="pregunta-content"></div>
-      <div id="feedback-area" style="margin: 1rem 0; padding: 1rem; border-radius: 6px; display: none; font-weight: 600;"></div>
-      <button class="btn-primary" id="btn-main" onclick="validar()">Validar</button>
+    <div id="screen-quiz" class="card hidden">
+        <div id="q-header" style="color: var(--inacap-red); font-weight: 700; margin-bottom: 15px;"></div>
+        <div id="q-content"></div>
+        <div id="feedback" style="padding: 10px; border-radius: 4px; margin-bottom: 15px; display: none;"></div>
+        <button id="btn-action" class="btn" onclick="checkAnswer()">Validar</button>
     </div>
 
-    <div id="screen-resultados" class="card hidden">
-      <h2 style="text-align:center">Resultado Final</h2>
-      <div class="nota-display" id="res-nota">1.0</div>
-      <div id="res-stats" style="text-align:center; margin-bottom: 2rem; color: var(--gray);"></div>
-      <button class="btn-primary" onclick="location.reload()">Reiniciar</button>
+    <div id="screen-result" class="card hidden" style="text-align: center;">
+        <h2>Certificación Finalizada</h2>
+        <div id="final-grade" style="font-family: 'Orbitron'; font-size: 4rem; color: var(--inacap-red);"></div>
+        <p id="final-stats"></p>
+        <button class="btn" onclick="location.reload()">Reintentar</button>
     </div>
-  </main>
+
+    <div class="watermark">Docente NMZ - versión 1 - 2026</div>
 </div>
 
 <script>
-// Lógica simplificada y robusta
-const COLORES = [
-  { n:'Negro', d:0, m:1, c:'b-negro' },
-  { n:'Marrón', d:1, m:10, c:'b-marron' },
-  { n:'Rojo', d:2, m:100, c:'b-rojo' },
-  { n:'Naranja', d:3, m:1000, c:'b-naranja' },
-  { n:'Amarillo', d:4, m:10000, c:'b-amarillo' },
-  { n:'Verde', d:5, m:100000, c:'b-verde' },
-  { n:'Azul', d:6, m:1000000, c:'b-azul' }
-];
+    const COLORS = [
+        { n: 'Negro', d: 0, m: 1, c: 'negro' },
+        { n: 'Marrón', d: 1, m: 10, c: 'marron' },
+        { n: 'Rojo', d: 2, m: 100, c: 'rojo' },
+        { n: 'Naranja', d: 3, m: 1000, c: 'naranja' },
+        { n: 'Amarillo', d: 4, m: 10000, c: 'amarillo' },
+        { n: 'Verde', d: 5, m: 100000, c: 'verde' },
+        { n: 'Azul', d: 6, m: 1000000, c: 'azul' },
+        { n: 'Violeta', d: 7, m: 0, c: 'violeta' },
+        { n: 'Gris', d: 8, m: 0, c: 'gris' },
+        { n: 'Blanco', d: 9, m: 0, c: 'blanco' }
+    ];
 
-const E24_BASE = [10, 12, 15, 18, 22, 27, 33, 39, 47, 56, 68, 82];
-const MULTS = [1, 10, 100, 1000];
+    let currentQ = 0, score = 0, questions = [];
 
-let currentIdx = 0, score = 0, questions = [];
-
-function iniciarQuiz() {
-  for(let i=0; i<10; i++) {
-    let base = E24_BASE[Math.floor(Math.random()*E24_BASE.length)];
-    let mult = MULTS[Math.floor(Math.random()*MULTS.length)];
-    let val = base * mult;
-    questions.push({
-      val, 
-      d1: Math.floor(base/10), 
-      d2: base%10, 
-      m: mult,
-      modo: Math.random() > 0.5 ? 'A' : 'B'
+    // Cargar tabla de estudio al inicio
+    const tbody = document.getElementById('ref-body');
+    COLORS.forEach(col => {
+        if(col.d < 10) {
+            tbody.innerHTML += `<tr>
+                <td><span class="swatch ${col.c}"></span> ${col.n}</td>
+                <td>${col.d}</td>
+                <td>${col.m ? 'x' + col.m : '-'}</td>
+            </tr>`;
+        }
     });
-  }
-  document.getElementById('screen-inicio').classList.add('hidden');
-  document.getElementById('screen-pregunta').classList.remove('hidden');
-  renderQuestion();
-}
 
-function renderQuestion() {
-  const q = questions[currentIdx];
-  const content = document.getElementById('pregunta-content');
-  document.getElementById('prog-texto').textContent = `EJERCICIO ${currentIdx + 1} DE 10`;
-  document.getElementById('feedback-area').style.display = 'none';
-  document.getElementById('btn-main').onclick = validar;
-  document.getElementById('btn-main').textContent = "Validar";
+    function startQuiz() {
+        // Generar 10 preguntas (5 de cada tipo)
+        for(let i=0; i<10; i++) {
+            const d1 = Math.floor(Math.random() * 9) + 1;
+            const d2 = Math.floor(Math.random() * 10);
+            const mObj = COLORS[Math.floor(Math.random() * 7)]; // Solo colores con multiplicador
+            questions.push({
+                d1: COLORS.find(c => c.d === d1),
+                d2: COLORS.find(c => c.d === d2),
+                m: mObj,
+                val: (d1 * 10 + d2) * mObj.m,
+                type: i % 2 === 0 ? 'color-to-val' : 'val-to-color'
+            });
+        }
+        document.getElementById('screen-study').classList.add('hidden');
+        document.getElementById('screen-quiz').classList.remove('hidden');
+        showQuestion();
+    }
 
-  if(q.modo === 'A') {
-    let c1 = COLORES.find(c => c.d === q.d1);
-    let c2 = COLORES.find(c => c.d === q.d2);
-    let c3 = COLORES.find(c => c.m === q.m);
-    content.innerHTML = `
-      <p style="margin-bottom:1rem">Identifica el valor de la resistencia:</p>
-      <div class="resistor-wrap">
-        <div class="resistor-wire"></div>
-        <div class="resistor-body">
-          <div class="band ${c1.c}"></div><div class="band ${c2.c}"></div><div class="band ${c3.c}"></div>
-          <div style="width:20px"></div><div class="band b-dorado"></div>
-        </div>
-        <div class="resistor-wire"></div>
-      </div>
-      <div class="input-group">
-        <label>Valor en Ohmios (Ω)</label>
-        <input type="number" id="ans">
-      </div>`;
-  } else {
-    content.innerHTML = `
-      <p style="margin-bottom:1rem">Indica los colores para: <strong>${q.val} Ω</strong></p>
-      <div class="input-group"><label>Banda 1 (Color)</label><input type="text" id="b1"></div>
-      <div class="input-group"><label>Banda 2 (Color)</label><input type="text" id="b2"></div>
-      <div class="input-group"><label>Banda 3 (Multiplicador)</label><input type="text" id="b3"></div>`;
-  }
-}
+    function showQuestion() {
+        const q = questions[currentQ];
+        const content = document.getElementById('q-content');
+        document.getElementById('q-header').innerText = `PREGUNTA ${currentQ + 1} DE 10`;
+        document.getElementById('feedback').style.display = 'none';
+        document.getElementById('btn-action').innerText = "Validar";
+        document.getElementById('btn-action').onclick = checkAnswer;
 
-function validar() {
-  const q = questions[currentIdx];
-  let isCorrect = false;
-  let correctTxt = "";
+        if(q.type === 'color-to-val') {
+            content.innerHTML = `
+                <p>Calcula el valor de la resistencia según las bandas:</p>
+                <div class="resistor-container">
+                    <div class="wire"></div>
+                    <div class="r-body">
+                        <div class="b ${q.d1.c}"></div>
+                        <div class="b ${q.d2.c}"></div>
+                        <div class="b ${q.m.c}"></div>
+                        <div style="width:20px"></div>
+                        <div class="b dorado"></div>
+                    </div>
+                    <div class="wire"></div>
+                </div>
+                <input type="number" id="ans" placeholder="Valor en Ohmios (Ω)">
+            `;
+        } else {
+            content.innerHTML = `
+                <p>Indica los colores para una resistencia de:</p>
+                <h2 style="text-align:center; color: var(--inacap-red);">${q.val} Ω</h2>
+                <input type="text" id="b1" placeholder="Color Banda 1">
+                <input type="text" id="b2" placeholder="Color Banda 2">
+                <input type="text" id="b3" placeholder="Color Banda 3 (Multiplicador)">
+            `;
+        }
+    }
 
-  if(q.modo === 'A') {
-    const userAns = parseFloat(document.getElementById('ans').value);
-    isCorrect = userAns === q.val;
-    correctTxt = `La respuesta era ${q.val} Ω`;
-  } else {
-    const b1 = document.getElementById('b1').value.toLowerCase().trim();
-    const b2 = document.getElementById('b2').value.toLowerCase().trim();
-    const b3 = document.getElementById('b3').value.toLowerCase().trim();
-    const c1 = COLORES.find(c => c.d === q.d1).n.toLowerCase();
-    const c2 = COLORES.find(c => c.d === q.d2).n.toLowerCase();
-    const c3 = COLORES.find(c => c.m === q.m).n.toLowerCase();
-    isCorrect = (b1.includes(c1) && b2.includes(c2) && b3.includes(c3));
-    correctTxt = `Colores: ${c1}, ${c2}, ${c3}`;
-  }
+    function checkAnswer() {
+        const q = questions[currentQ];
+        let correct = false;
+        let info = "";
 
-  const fb = document.getElementById('feedback-area');
-  fb.style.display = 'block';
-  fb.style.background = isCorrect ? 'rgba(46,204,113,0.2)' : 'rgba(226,35,26,0.2)';
-  fb.style.color = isCorrect ? '#2ecc71' : '#ff4444';
-  fb.textContent = isCorrect ? "¡CORRECTO!" : `INCORRECTO. ${correctTxt}`;
-  
-  if(isCorrect) score++;
-  document.getElementById('btn-main').textContent = "Siguiente";
-  document.getElementById('btn-main').onclick = next;
-}
+        if(q.type === 'color-to-val') {
+            const userVal = parseInt(document.getElementById('ans').value);
+            correct = userVal === q.val;
+            info = `El valor correcto era ${q.val} Ω`;
+        } else {
+            const u1 = document.getElementById('b1').value.toLowerCase();
+            const u2 = document.getElementById('b2').value.toLowerCase();
+            const u3 = document.getElementById('b3').value.toLowerCase();
+            
+            // Función para normalizar nombres (marrón/cafe)
+            const norm = (s) => s.replace('ó','o').replace('é','e').replace('cafe','marron');
+            
+            correct = norm(u1).includes(norm(q.d1.n).toLowerCase()) && 
+                      norm(u2).includes(norm(q.d2.n).toLowerCase()) && 
+                      norm(u3).includes(norm(q.m.n).toLowerCase());
+            info = `Los colores eran: ${q.d1.n}, ${q.d2.n}, ${q.m.n}`;
+        }
 
-function next() {
-  currentIdx++;
-  if(currentIdx < 10) renderQuestion();
-  else finish();
-}
+        const fb = document.getElementById('feedback');
+        fb.style.display = 'block';
+        fb.style.backgroundColor = correct ? '#1b4332' : '#4e1616';
+        fb.style.color = correct ? '#81c784' : '#e57373';
+        fb.innerText = correct ? "¡Excelente! Respuesta correcta." : `Incorrecto. ${info}`;
 
-function finish() {
-  document.getElementById('screen-pregunta').classList.add('hidden');
-  document.getElementById('screen-resultados').classList.remove('hidden');
-  let nota = score < 6 ? (score / 6) * 3 + 1 : ((score - 6) / 4) * 3 + 4;
-  document.getElementById('res-nota').textContent = nota.toFixed(1);
-  document.getElementById('res-stats').textContent = `Lograste ${score} de 10 aciertos.`;
-}
+        if(correct) score++;
+        
+        const btn = document.getElementById('btn-action');
+        btn.innerText = "Siguiente";
+        btn.onclick = () => {
+            currentQ++;
+            if(currentQ < 10) showQuestion();
+            else showResult();
+        };
+    }
+
+    function showResult() {
+        document.getElementById('screen-quiz').classList.add('hidden');
+        document.getElementById('screen-result').classList.remove('hidden');
+        
+        // Escala chilena (60% exigencia)
+        let nota = (score < 6) ? (score * 3 / 6) + 1 : ((score - 6) * 3 / 4) + 4;
+        
+        document.getElementById('final-grade').innerText = nota.toFixed(1);
+        document.getElementById('final-stats').innerText = `Aprobaste ${score} de 10 ejercicios.`;
+    }
 </script>
 </body>
 </html>
